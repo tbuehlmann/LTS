@@ -1,0 +1,27 @@
+{
+    "states": ["off", "low", "high"],
+    "initial_states": ["off"],
+    "actions": ["press", "hold"],
+    "transitions": [
+        {
+            "action": "press",
+            "from_state": "off",
+            "to_state": "low"
+        },
+        {
+            "action": "press",
+            "from_state": "low",
+            "to_state": "off"
+        },
+        {
+            "action": "press",
+            "from_state": "high",
+            "to_state": "off"
+        },
+        {
+            "action": "hold",
+            "from_state": "low",
+            "to_state": "high"
+        }
+    ]
+}
