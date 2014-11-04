@@ -17,7 +17,7 @@ class Transitions
     for transition in @transitions
       string += transition.to_tikz
     end
-    string += ";"
+    string += ";\n"
   end
 
   def transition_list(transitions, actions, states)

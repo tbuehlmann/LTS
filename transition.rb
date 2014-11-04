@@ -12,6 +12,6 @@ class Transition
 
   def to_tikz
     loop = @from_state == @to_state ? "loop" : "bend"
-    "(#{from_state}) edge [#{loop} left] node {#{action}} (#{to_state}) \n"
+    "(#{from_state}) edge [#{loop} right] node {#{action}} (#{to_state}) \n"
   end
 end
