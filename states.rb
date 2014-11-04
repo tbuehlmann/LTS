@@ -1,3 +1,4 @@
+require './state'
 class States < Hash
   attr_accessor :states
 
@@ -29,6 +30,7 @@ class States < Hash
   def each_key(&block)
     @states.each_key(&block)
   end
+
   def length
     @states.length
   end

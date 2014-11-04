@@ -3,8 +3,20 @@
     "initial_states": ["released"],
     "actions": ["press", "release", "hold"],
     "transitions": [
-        {"action": "press", "from_state": "released", "to_state" : "pressed"},
-        {"action": "release", "from_state": "pressed", "to_state" : "released"},
-        {"action": "hold", "from_state": "pressed", "to_state" : "pressed"}
+        {
+            "action": "press",
+            "from_state": "released",
+            "to_state": "pressed"
+        },
+        {
+            "action": "release",
+            "from_state": "pressed",
+            "to_state": "released"
+        },
+        {
+            "action": "hold",
+            "from_state": "pressed",
+            "to_state": "pressed"
+        }
     ]
 }

@@ -1,9 +1,11 @@
+require './transition'
 class Transitions
   attr_reader :transitions
 
   def initialize
     @transitions = []
   end
+
   def add_transition(transition)
     @transitions << transition
   end

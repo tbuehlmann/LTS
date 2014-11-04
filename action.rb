@@ -1,5 +1,6 @@
 class Action
   attr_accessor :name
+
   def initialize(action_name)
     @name = action_name
   end

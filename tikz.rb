@@ -1,5 +1,6 @@
 class Tikz
   attr_accessor :states, :initial_states, :actions, :transitions
+
   def initialize(states, init_states, actions, transitions)
     @states = states
     @initial_states = init_states

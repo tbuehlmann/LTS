@@ -1,5 +1,6 @@
 class Transition
   attr_accessor :from_state, :to_state, :action
+
   def initialize(action, from_state, to_state)
     @action = action
     @from_state = from_state

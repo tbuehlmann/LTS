@@ -1,10 +1,8 @@
 require 'json'
-require './state'
 require './states'
 require './init_states'
-require './action'
-require './transition'
 require './transitions'
+require './actions'
 require './tikz'
 class LTS
   attr_accessor :states, :initial_states, :transitions, :actions
