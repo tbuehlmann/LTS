@@ -14,10 +14,11 @@ class LTS
     lts = JSON.parse(f)
     @states = States.new
     @initial_states = InitStates.new
+    @transitions = Transitions.new
+    @actions = Actions.new
     @states.states_list(lts["states"])
     @initial_states.init_states_list(lts["initial_states"], @states)
-    @actions = actions_list(lts["actions"])
-    @transitions = Transitions.new
+    @actions.actions_list(lts["actions"])
     @transitions.transition_list lts["transitions"], @actions, @states
   end
 
@@ -25,9 +26,10 @@ class LTS
     new_LTS = LTS.new
     new_LTS.states = States.new
     new_LTS.initial_states = InitStates.new
+    new_LTS.actions = Actions.new
     new_LTS.states.compose(@states, other_lts.states)
     new_LTS.initial_states.init_states_product(@initial_states, other_lts.initial_states, new_LTS.states)
-    new_LTS.actions = self.actions.merge(other_lts.actions)
+    new_LTS.actions = @actions.merge(other_lts.actions)
     new_LTS.transitions = @transitions.compose(@actions, other_lts.transitions, other_lts.actions, new_LTS.states, h)
     new_LTS
   end
@@ -36,9 +38,4 @@ class LTS
     tikz = Tikz.new(@states, @initial_states, @actions, @transitions)
     File.open("#{filename}.tex", 'w') { |file| file.write(tikz.to_tikz) }
   end
-
-  def actions_list(actions)
-    actions.inject({}) { |hsh, action_name| hsh[action_name] = Action.new(action_name); hsh }
-  end
-
 end
