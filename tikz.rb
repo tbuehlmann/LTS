@@ -10,11 +10,7 @@ class Tikz
 
   def to_tikz
     string = tikz_prae
-    state_id = 0
-    for state in @states
-      string += state[1].to_tikz(@initial_states.include?(state[1]), state_id, @states.length)
-      state_id += 1
-    end
+    string += @states.to_tikz(@initial_states)
     string += @transitions.to_tikz
     string += tikz_end
     string

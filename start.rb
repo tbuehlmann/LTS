@@ -1,4 +1,5 @@
 require './lts'
+`rm -rf *.tex *.aux *.log *.pdf`
 switch_lts = LTS.new
 switch_lts.parse_json("switch.json")
 switch_lts.to_tex("switch")
