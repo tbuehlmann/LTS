@@ -15,11 +15,7 @@ class Tikz
       string += state[1].to_tikz(@initial_states.include?(state[1]), state_id, @states.length)
       state_id += 1
     end
-    string += "\\path "
-    for transition in @transitions
-      string += transition.to_tikz
-    end
-    string += ";"
+    string += @transitions.to_tikz
     string += tikz_end
     string
   end
